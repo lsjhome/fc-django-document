@@ -1,25 +1,8 @@
 from datetime import datetime
 from django.utils import timezone
-
 from django.db import models
 
-
-class Topping(models.Model):
-    name = models.CharField(max_length=50)
-
-    def __str__(self):
-        return self.name
-
-
-class Pizza(models.Model):
-    # ...
-    name = models.CharField(max_length=50)
-    toppings = models.ManyToManyField(Topping) # 다대 다라도 이게 중심에 되는게 맞으니 이쪽에 이렇게 넣어준다.
-
-    def __str__(self):
-        return self.name
-
-# Extra fields on many-to-many relationships
+__all__ = ('Post', 'User', 'PostLike')
 
 
 class Post(models.Model):
@@ -59,8 +42,8 @@ class PostLike(models.Model):
         auto_now_add=True
     )
 
-    @property
     def __str__(self):
+
         # 글 title이 "공지사항" 이며
         # 유저 name이 "이한영"이고,
         # 좋아요 누른 사람이 2018.01.31 일때
@@ -72,3 +55,5 @@ class PostLike(models.Model):
                 timezone.make_naive(self.created_date),
                 '%Y.%m.%d'),
             )
+
+
