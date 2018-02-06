@@ -8,6 +8,8 @@ from .models import (
     Post, User, PostLike,
     # self
     FacebookUser,
+    # symmetrical
+    symmetrical
     )
 
 admin.site.register(Topping)
@@ -16,3 +18,4 @@ admin.site.register(Post)
 admin.site.register(User)
 admin.site.register(PostLike)
 admin.site.register(FacebookUser)
+# admin.site.register(symmetrical)
